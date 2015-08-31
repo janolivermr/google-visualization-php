@@ -50,7 +50,7 @@ class DataSourceGenerator
      *
      * @return string
      */
-    public function generateJson($objects, $columns)
+    public static function generateJson($objects, $columns)
     {
         return Notation::encode(static::generate($objects, $columns));
     }
