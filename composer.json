@@ -1,0 +1,24 @@
+{
+  "name": "jsto/google-visualization-php",
+  "description": "PHP Library for providing Google Visualization Data Sources.",
+  "license": "GNU GPL v2.0",
+  "homepage": "https://github.com/jsto/google-visualization-php",
+  "authors": [
+    {
+      "name": "Jan Stolle",
+      "email": "janstolle@me.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.1"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "^2.2",
+    "psy/psysh": "^0.5.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "GoogleVisualization\\": "src/GoogleVisualization/"
+    }
+  }
+}
