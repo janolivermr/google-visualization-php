@@ -50,7 +50,7 @@ class Notation
                 }
                 break;
             default:
-                $result = null;
+                $result = 'null';
         }
 
         return $result;

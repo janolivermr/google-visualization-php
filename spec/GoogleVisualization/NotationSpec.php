@@ -60,4 +60,10 @@ class NotationSpec extends ObjectBehavior
         $this->encode(new \DateTime("2015-10-21 07:28:05"))->shouldBeString();
         $this->encode(new \DateTime("2015-10-21 07:28:05"))->shouldBeLike('new Date(2015, 9, 21, 7, 28, 5)');
     }
+
+    function it_encodes_null_as_string_null()
+    {
+        $this->encode(null)->shouldBeString();
+        $this->encode(null)->shouldBeLike('null');
+    }
 }
