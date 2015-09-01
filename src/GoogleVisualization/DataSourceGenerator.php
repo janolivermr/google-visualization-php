@@ -100,6 +100,10 @@ class DataSourceGenerator
                         throw new \InvalidArgumentException("A field that was supposed to be interpreted as a number is not numeric");
                     }
                 break;
+                case 'datetime':
+                case 'date':
+                    $cell->v = new \DateTime($objectArr[$key]);
+                    break;
                 default:
                     $cell->v = $objectArr[$key];
                     break;

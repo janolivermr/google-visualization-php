@@ -56,7 +56,8 @@ class NotationSpec extends ObjectBehavior
 
     function it_encodes_datetime_as_new_js_date_object()
     {
-        $this->encode(new \DateTime("2015-10-21 07:28:30", new \DateTimeZone('UTC')))->shouldBeString();
-        $this->encode(new \DateTime("2015-10-21 07:28:05", new \DateTimeZone('UTC')))->shouldBeLike('new Date(2015, 9, 21, 7, 28, 5)');
+        date_default_timezone_set('UTC');
+        $this->encode(new \DateTime("2015-10-21 07:28:05"))->shouldBeString();
+        $this->encode(new \DateTime("2015-10-21 07:28:05"))->shouldBeLike('new Date(2015, 9, 21, 7, 28, 5)');
     }
 }

@@ -88,4 +88,14 @@ class DataSourceGeneratorSpec extends ObjectBehavior
         $outputData->rows->shouldHaveCount(1);
         $outputData->rows[0]->c[0]->v->shouldBeInteger();
     }
+
+    function it_converts_dates_to_datetime_objects_where_necessary()
+    {
+        date_default_timezone_set('UTC');
+        $inputData = json_decode('[{"date":"2015-10-21 07:28:30"}]');
+        $outputData = $this->generate($inputData,["date"=>"datetime"]);
+        $outputData->rows->shouldHaveCount(1);
+        $outputData->rows[0]->c[0]->v->shouldReturnAnInstanceOf('\DateTime');
+        $outputData->rows[0]->c[0]->v->format('yoda')->shouldBeLike('15201521am');
+    }
 }
