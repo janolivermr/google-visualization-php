@@ -50,8 +50,8 @@ class NotationSpec extends ObjectBehavior
 
     function it_encodes_associative_arrays_as_objects()
     {
-        $this->encode(['foo'=>'bar','bar'=>'baz'])->shouldBeString();
-        $this->encode(['foo'=>'bar','bar'=>'baz'])->shouldBeLike('{foo: "bar", bar: "baz"}');
+        $this->encode(['foo' => 'bar', 'bar' => 'baz'])->shouldBeString();
+        $this->encode(['foo' => 'bar', 'bar' => 'baz'])->shouldBeLike('{foo: "bar", bar: "baz"}');
     }
 
     function it_encodes_datetime_as_new_js_date_object()
