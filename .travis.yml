@@ -12,4 +12,10 @@ matrix:
     - php: 7.0
     - php: hhvm
 
+before_install:
+  - composer selfupdate
+
+install:
+  - composer install
+
 script: vendor/bin/phpspec run
