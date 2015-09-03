@@ -12,4 +12,4 @@ matrix:
     - php: 7.0
     - php: hhvm
 
-script: phpspec run
+script: vendor/bin/phpspec run
