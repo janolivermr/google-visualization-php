@@ -57,8 +57,9 @@ class DataSourceGeneratorSpec extends ObjectBehavior
 
     function it_creates_valid_cells_from_a_single_object()
     {
-        $inputData = json_decode('[{"gender":"male", "age":27},{"gender":"female", "age":24}]');
-        $outputData = $this->createCells($inputData[0], ["gender" => "string"]);
+        $columns    = json_decode('[{"id": "gender", "type": "string"}]');
+        $inputData  = json_decode('[{"gender":"male", "age":27},{"gender":"female", "age":24}]');
+        $outputData = $this->createCells($inputData[0], $columns);
         $outputData->shouldBeArray();
         $outputData->shouldHaveCount(1);
         $outputData[0]->v->shouldBeLike('male');
@@ -66,8 +67,9 @@ class DataSourceGeneratorSpec extends ObjectBehavior
 
     function it_creates_multiple_valid_cells_from_a_single_object()
     {
-        $inputData = json_decode('[{"gender":"male", "age":27},{"gender":"female", "age":24}]');
-        $outputData = $this->createCells($inputData[0], ["gender" => "string", "age" => "number"]);
+        $columns    = json_decode('[{"id": "gender", "type": "string"}, {"id": "age", "type": "number"}]');
+        $inputData  = json_decode('[{"gender":"male", "age":27},{"gender":"female", "age":24}]');
+        $outputData = $this->createCells($inputData[0], $columns);
         $outputData->shouldBeArray();
         $outputData->shouldHaveCount(2);
         $outputData[0]->v->shouldBeLike('male');
